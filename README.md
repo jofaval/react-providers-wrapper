@@ -22,12 +22,12 @@ This package proposes a solution that nicely wraps all of those Providers so tha
 [⬆ Back to the contents](#contents)
 
 ```jsx
-<React.Strict />,
-  <Provider store={store} />,
-    <UserProvider />,
-      <LoginProvider />,
-        <BlaBlaBlaProvider />,
-          <NoseQueProvider />,
+<React.Strict>,
+  <Provider store={store}>,
+    <UserProvider>,
+      <LoginProvider>,
+        <BlaBlaBlaProvider>,
+          <NoseQueProvider>,
             <App />
           <NoseQueProvider />,
         <BlaBlaBlaProvider />,
