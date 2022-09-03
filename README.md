@@ -14,9 +14,9 @@ Nest your React providers
 ## Why?
 [⬆ Back to the contents](#contents)
 
-For code style purposes, when you have a bigger React App, you may end up with a lot of nested providers at your App which may be confusing to look at.
+I saw it on twitter, shared by Dan Abramov, as someone was complaining of this nesting, and I thought of a solution for a non-existent problem.
 
-This package proposes a solution that nicely wraps all of those Providers so that it's easier to track the hierarchy.
+For code style purposes, when you have a bigger React App, you may end up with a lot of nested providers at your App which may be confusing to look at. This package proposes a solution that nicely wraps all of those Providers so that it's easier to track the hierarchy.
 
 ### Problem
 [⬆ Back to the contents](#contents)
