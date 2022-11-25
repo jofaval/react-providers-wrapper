@@ -6,12 +6,14 @@ specifiers:
   '@vitejs/plugin-react': ^2.2.0
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-providers-wrapper: link:..\..\package\react-providers-wrapper
   typescript: ^4.6.4
   vite: ^3.2.3
 
 dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-providers-wrapper: link:../../package/react-providers-wrapper
 
 devDependencies:
   '@types/react': 18.0.25
