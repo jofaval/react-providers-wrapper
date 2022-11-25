@@ -14,8 +14,8 @@ const ProviderWrapper: React.FC<ProviderWrapperProps> = ({
   providers,
   children,
 }) => {
-  const LastProvider = providers.reduce((prev, CurrentComponent) => {
-    return cloneElement(prev, { children: CurrentComponent });
+  const LastProvider = providers.reduce((ParentProvider, ChildrenProvider) => {
+    return cloneElement(ParentProvider, { children: ChildrenProvider });
   }, <FakeFragment />);
 
   const LastProviderWithChildre = cloneElement(LastProvider, { children });
