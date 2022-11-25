@@ -5,17 +5,26 @@ const FakeFragment: React.FC<{ children?: JSX.Element }> = ({ children }) => {
   return <>{children}</>;
 };
 
-const ProviderWrapper: React.FC<
-  Pick<ReactNode, "children"> & { providers: JSX.Element[] }
-> = ({ providers }) => {
-  const WrappedProviders = useMemo<React.FunctionComponentElement<any>>(
-    () =>
-      providers.reduce((prev, CurrentComponent) => {
-        return cloneElement(prev, { children: CurrentComponent });
-      }, <FakeFragment />),
-    []
-  );
-
-  return <WrappedProviders>{children}</WrappedProviders>;
+export type ProviderWrapperProps = {
+  providers: ReactNode[];
+  children: ReactNode | undefined;
 };
+
+const ProviderWrapper: React.FC<ProviderWrapperProps> = ({
+  providers,
+  children,
+}) => {
+  const WrappedProviders = useMemo<ReactNode>(() => {
+    const LastProvider = providers.reduce((prev, CurrentComponent) => {
+      return cloneElement(prev, { children: CurrentComponent });
+    }, <FakeFragment />);
+
+    const LastProviderWithChildre = cloneElement(LastProvider, { children });
+
+    return LastProviderWithChildre;
+  }, [providers]);
+
+  return WrappedProviders;
+};
+
 export default ProviderWrapper;
