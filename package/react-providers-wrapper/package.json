@@ -1,0 +1,13 @@
+{
+  "name": "react-providers-wrapper",
+  "displayName": "React Providers Wrapper",
+  "description": "Nicely wrap all your providers for your app and drastically reduce the nesting in your main file",
+  "dependencies": {
+    "react": "^18.2.0",
+    "typescript": "^4.9.3",
+    "vitest": "^0.25.3"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.18"
+  }
+}

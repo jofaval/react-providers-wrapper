@@ -10,7 +10,7 @@
         "jsx": "react",
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
-        "baseUrl": "../../src",
+        "baseUrl": "src",
         "paths": {
             "*": ["*", "../tests/*"]
         },

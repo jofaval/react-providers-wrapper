@@ -9,11 +9,13 @@
 
 ### Added
 
--
+- The base initial logic
+- Examples folder
 
 ### Modified
 
 - Now the packages will be managed with PNPM, should only improve the workflow
+- Moved to a package folder
 
 ## v0.0.0 (2022-09-03)
 
