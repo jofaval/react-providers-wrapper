@@ -1,21 +1,21 @@
 // Vendors
-import React from "react";
+import React, { ReactNode, useMemo, cloneElement } from "react";
 
-const ProviderWrapper: React.FC<{ providers: JSX.Element[] }> = ({
-  providers,
-}) =>
-  React.useMemo<JSX.Element>(() => {
-    let Previous = providers[0];
+const FakeFragment: React.FC<{ children?: JSX.Element }> = ({ children }) => {
+  return <>{children}</>;
+};
 
-    providers.slice(1).map((CurrentProvider) => {
-      Previous = (
-        <Previous>
-          <CurrentProvider />
-        </Previous>
-      );
-    });
+const ProviderWrapper: React.FC<
+  Pick<ReactNode, "children"> & { providers: JSX.Element[] }
+> = ({ providers }) => {
+  const WrappedProviders = useMemo<React.FunctionComponentElement<any>>(
+    () =>
+      providers.reduce((prev, CurrentComponent) => {
+        return cloneElement(prev, { children: CurrentComponent });
+      }, <FakeFragment />),
+    []
+  );
 
-    return Previous;
-  }, []);
-
+  return <WrappedProviders>{children}</WrappedProviders>;
+};
 export default ProviderWrapper;
