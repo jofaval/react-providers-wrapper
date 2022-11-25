@@ -2,7 +2,7 @@
   "homepage": "https://github.com/jofaval/react-providers-wrapper#readme",
   "name": "react-providers-wrapper",
   "type": "module",
-  "main": "index.tsx",
+  "main": "index.ts",
   "version": "0.0.1",
   "displayName": "React Providers Wrapper",
   "description": "Nicely wrap all your providers for your app and drastically reduce the nesting in your main file",
