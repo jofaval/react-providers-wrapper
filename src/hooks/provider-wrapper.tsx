@@ -1,26 +1,23 @@
 // Vendors
-import React, { ReactNode, cloneElement } from "react";
+import React, { ReactNode, cloneElement, FC } from "react";
 
-const FakeFragment: React.FC<{ children?: JSX.Element }> = ({ children }) => (
-  <>{children}</>
-);
+export type FakeFragmentProps = {
+  children?: JSX.Element;
+};
+
+const FakeFragment: FC<FakeFragmentProps> = ({ children }) => <>{children}</>;
 
 export type ProviderWrapperProps = {
   providers: ReactNode[];
   children: ReactNode | undefined;
 };
 
-const ProviderWrapper: React.FC<ProviderWrapperProps> = ({
-  providers,
-  children,
-}) => {
+const ProviderWrapper: FC<ProviderWrapperProps> = ({ providers, children }) => {
   const LastProvider = providers.reduce((ParentProvider, ChildrenProvider) => {
     return cloneElement(ParentProvider, { children: ChildrenProvider });
   }, <FakeFragment />);
 
-  const LastProviderWithChildre = cloneElement(LastProvider, { children });
-
-  return LastProviderWithChildre;
+  return cloneElement(LastProvider, { children });
 };
 
 export default ProviderWrapper;
