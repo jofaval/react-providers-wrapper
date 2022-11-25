@@ -1,7 +1,25 @@
 {
+  "homepage": "https://github.com/jofaval/react-providers-wrapper#readme",
   "name": "react-providers-wrapper",
+  "type": "module",
+  "main": "index.tsx",
+  "version": "0.0.1",
   "displayName": "React Providers Wrapper",
   "description": "Nicely wrap all your providers for your app and drastically reduce the nesting in your main file",
+  "keywords": [
+    "react",
+    "providers",
+    "frontend"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jofaval/react-providers-wrapper.git"
+  },
+  "author": "jofaval",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jofaval/react-providers-wrapper/issues"
+  },
   "dependencies": {
     "react": "^18.2.0",
     "typescript": "^4.9.3",
@@ -9,5 +27,10 @@
   },
   "devDependencies": {
     "@types/react": "^18.0.18"
+  },
+  "scripts": {
+    "test": "echo Hello World!",
+    "build": "echo Hello World!",
+    "publish": "echo Hello World!"
   }
 }
