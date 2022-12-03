@@ -6,6 +6,11 @@ on:
   push:
     branches: [master]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   test-deploy:
     if: github.event_name != 'push'
@@ -26,7 +31,7 @@ jobs:
       - name: Test build website
         run: pnpm build
 
-  deploy:
+  build:
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
@@ -57,12 +62,24 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Deploy to GitHub Pages
-        id: gh-pages-deploy
-        shell: bash
+      - name: Generate static files
         run: |
           cd docs
-          git config --global user.email "${{ github.event.pusher.email }}"
-          git config --global user.name "Pepe Fabra Valverde"
           pnpm install --frozen-lockfile
-          pnpm run deploy
+          pnpm run build
+
+      - name: Upload artifact to Github Pages
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./docs/build
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
