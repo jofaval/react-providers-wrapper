@@ -60,10 +60,9 @@ jobs:
       - name: Deploy to GitHub Pages
         id: gh-pages-deploy
         shell: bash
-        env:
-          USE_SSH: false
         run: |
+          cd docs
           git config --global user.email "${{ github.event.pusher.email }}"
           git config --global user.name "Pepe Fabra Valverde"
           pnpm install --frozen-lockfile
-          pnpm deploy
+          pnpm run deploy
