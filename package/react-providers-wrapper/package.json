@@ -1,9 +1,9 @@
 {
   "homepage": "https://github.com/jofaval/react-providers-wrapper#readme",
   "name": "react-providers-wrapper",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/index.d.ts",
+  "type": "module",
+  "main": "./dist/react-providers-wrapper.umd.cjs",
+  "module": "./dist/react-providers-wrapper.js",
   "version": "0.0.1",
   "displayName": "React Providers Wrapper",
   "description": "Nicely wrap all your providers for your app and drastically reduce the nesting in your main file",
@@ -22,30 +22,32 @@
     "url": "https://github.com/jofaval/react-providers-wrapper/issues"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^23.0.2",
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "@rollup/plugin-typescript": "^9.0.2",
     "@types/react": "^18.0.18",
+    "@vitejs/plugin-react": "^2.2.0",
     "react": "^18.2.0",
-    "rollup-plugin-dts": "^5.0.0",
     "rollup": "^3.4.0",
+    "rollup-plugin-dts": "^5.0.0",
     "typescript": "^4.9.3",
-    "vitest": "^0.25.3",
-    "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.11.4",
-    "@babel/preset-env": "^7.11.0",
-    "@babel/preset-react": "^7.10.4",
-    "@rollup/plugin-babel": "^5.2.0",
-    "rollup-plugin-delete": "^2.0.0",
-    "rollup-plugin-peer-deps-external": "^2.2.3"
+    "vite": "^3.2.4",
+    "vitest": "^0.25.3"
   },
   "scripts": {
-    "build": "pnpm run rollup",
-    "publish": "build && echo Hello World!",
-    "rollup": "rollup -c",
-    "test": "echo Hello World!"
+    "check:ts": "tsc --strict",
+    "build:ts": "tsc --outFile ./dist/index.d.ts -m amd --isolatedModules false --noEmit false",
+    "build": "pnpm run test && vite build && pnpm run build:ts",
+    "publish": "pnpm run build && echo Hello World!",
+    "test": "pnpm run check:ts && echo Hello World!"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/jofaval"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/my-lib.js",
+      "require": "./dist/my-lib.umd.cjs"
+    }
   }
 }

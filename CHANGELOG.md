@@ -4,6 +4,16 @@
 
 ### Installed
 
+- vite
+
+### Added
+
+- Lib implementation with vite, exporting types
+
+## v0.0.1 (2022-11-25)
+
+### Installed
+
 - Typescript
 - Vitest
 
