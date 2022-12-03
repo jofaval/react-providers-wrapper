@@ -57,12 +57,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - uses: webfactory/ssh-agent@v0.5.0
-        with:
-          ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
       - name: Deploy to GitHub Pages
+        id: gh-pages-deploy
+        shell: bash
         env:
-          USE_SSH: true
+          USE_SSH: false
         run: |
           git config --global user.email "${{ github.event.pusher.email }}"
           git config --global user.name "Pepe Fabra Valverde"
