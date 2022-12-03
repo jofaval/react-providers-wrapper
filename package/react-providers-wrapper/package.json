@@ -4,6 +4,15 @@
   "type": "module",
   "main": "./dist/react-providers-wrapper.umd.cjs",
   "module": "./dist/react-providers-wrapper.js",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/react-providers-wrapper.js",
+      "require": "./dist/react-providers-wrapper.umd.cjs"
+    }
+  },
   "version": "0.0.1",
   "displayName": "React Providers Wrapper",
   "description": "Nicely wrap all your providers for your app and drastically reduce the nesting in your main file",
@@ -25,8 +34,6 @@
     "@types/react": "^18.0.18",
     "@vitejs/plugin-react": "^2.2.0",
     "react": "^18.2.0",
-    "rollup": "^3.4.0",
-    "rollup-plugin-dts": "^5.0.0",
     "typescript": "^4.9.3",
     "vite": "^3.2.4",
     "vitest": "^0.25.3"
@@ -40,14 +47,5 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/jofaval"
-  },
-  "files": [
-    "dist"
-  ],
-  "exports": {
-    ".": {
-      "import": "./dist/my-lib.js",
-      "require": "./dist/my-lib.umd.cjs"
-    }
   }
 }

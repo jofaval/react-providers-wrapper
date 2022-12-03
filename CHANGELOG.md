@@ -6,9 +6,18 @@
 
 - vite
 
+### Uninstalled
+
+- Rollup
+- Babel
+
 ### Added
 
 - Lib implementation with vite, exporting types
+
+### Fixed
+
+- Build is now properly working and can be installed
 
 ## v0.0.1 (2022-11-25)
 
