@@ -2,10 +2,15 @@
 
 ## v0.0.2 (2022-12-03)
 
+### Installed
+
+- Docusaurus
+
 ### Added
 
 - ROADMAP
 - Documented the version upgrade
+- Initialized a docusaurus project with `pnpm create create-docusaurus@latest docs classic`
 
 ## v0.0.1 (2022-12-03)
 
