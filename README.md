@@ -7,11 +7,22 @@ Nest your React providers
 
 ## Contents
 
+1. [Roadmap](#roadmap)
 1. [Why?](#why)
    1. [Problem](#problem)
    1. [Solution](#solution)
 1. [Inspiration](#inspiration)
 1. [Tech stack](#tech-stack)
+1. [Version upgrade instructions (local)](#Version)
+   1. [Create a local tag](#Create)
+   1. [Upload the tag to the remote (this repo)](#Upload)
+   1. [Configure your local](#Configure)
+
+## Roadmap
+
+[⬆ Back to the contents](#contents)
+
+Check out the Roadmap at [ROADMAP.md](./ROADMAP.md) and the CHANGELOG at [CHANGELOG.md](./CHANGELOG.md).
 
 ## Why?
 
@@ -77,13 +88,27 @@ Managed with PNPM
 
 ## Version upgrade instructions (local)
 
-Create a local tag
+[⬆ Back to the contents](#contents)
+
+### Create a local tag
+
+[⬆ Back to the contents](#contents)
 
 ```bash
 git tag x.x.x
 ```
 
-Upload the tag to the remote (this repo)
+### Upload the tag to the remote (this repo)
+
+[⬆ Back to the contents](#contents)
+
+```bash
+git push origin x.x.x
+```
+
+### Configure your local
+
+[⬆ Back to the contents](#contents)
 
 ```bash
 git push --follow-tags

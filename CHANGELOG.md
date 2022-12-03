@@ -1,6 +1,13 @@
 # CHANGELOG
 
-## v0.0.1 (2022-11-25)
+## v0.0.2 (2022-12-03)
+
+### Added
+
+- ROADMAP
+- Documented the version upgrade
+
+## v0.0.1 (2022-12-03)
 
 ### Installed
 
