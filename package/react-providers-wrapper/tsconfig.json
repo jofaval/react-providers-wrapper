@@ -1,13 +1,14 @@
 {
-  "exclude": ["node_modules", "./src/classes"],
+  "exclude": ["node_modules", "./src/classes/**/*", "//dist/**.*"],
   "include": ["src/**/*"],
   "compilerOptions": {
     "isolatedModules": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
-    "noEmit": true,
+    "noEmit": false,
     "strict": true,
     "jsx": "react",
+    "outDir": "./dist",
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "src",

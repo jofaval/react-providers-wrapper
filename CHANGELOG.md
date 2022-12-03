@@ -19,6 +19,10 @@
 
 - Build is now properly working and can be installed
 
+### Achieved
+
+- First successful installation and import
+
 ## v0.0.1 (2022-11-25)
 
 ### Installed

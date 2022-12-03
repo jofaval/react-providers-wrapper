@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Providers } from "react-providers-wrapper";
+import { ProviderWrapper } from "react-providers-wrapper";
 
-<Providers></Providers>;
+function App() {
+  return <div>Hello world!</div>;
+}
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <React.StrictMode>
+  <ProviderWrapper providers={[<React.StrictMode />]}>
     <App />
-  </React.StrictMode>
+  </ProviderWrapper>
 );
