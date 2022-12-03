@@ -74,3 +74,23 @@ And some random tweet making of the concept of many nested providers with "too m
 - Vitest
 
 Managed with PNPM
+
+## Version upgrade instructions (local)
+
+Create a local tag
+
+```bash
+git tag x.x.x
+```
+
+Upload the tag to the remote (this repo)
+
+```bash
+git push --follow-tags
+```
+
+Or set to always push tags in your local
+
+```bash
+git config --global push.followTags true
+```
