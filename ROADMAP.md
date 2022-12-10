@@ -2,11 +2,22 @@
 
 This project's roadmap
 
+## 0.0.3
+
+- Finally, upload the package to the NPM registry
+- Create a good set of tests
+
 ## 0.0.2
 
 - Improve the types and it's documentation
 - Upload some sort of documentation, Github Pages and docusaurus should suffice
-- Finally, upload the package to the NPM registry
+- Implement a more adecuate prop:
+
+```tsx
+providers={[
+  {'provider': ProviderComponent, 'props': { store }},
+]}
+```
 
 ## 0.0.1
 
