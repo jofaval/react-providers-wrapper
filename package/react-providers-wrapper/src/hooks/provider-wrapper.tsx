@@ -1,23 +1,53 @@
 // Vendors
-import React, { ReactNode, cloneElement, FC } from "react";
+import React, { ReactNode, cloneElement, FC, useMemo, useState } from "react";
+// Helpers
+import { deepCopyObject } from "helpers/deepCopyObject";
 
 export type FakeFragmentProps = {
   children?: JSX.Element;
 };
 
-const FakeFragment: FC<FakeFragmentProps> = ({ children }) => <>{children}</>;
+export const FakeFragment: FC<FakeFragmentProps> = ({ children }) => (
+  <>{children}</>
+);
+
+export type ProviderWrapperElement = {
+  provider: React.FC<any>;
+  props: { children?: ReactNode | undefined } & Record<string, any>;
+};
 
 export type ProviderWrapperProps = {
-  providers: ReactNode[];
+  providers: ProviderWrapperElement[];
   children: ReactNode | undefined;
 };
 
 const ProviderWrapper: FC<ProviderWrapperProps> = ({ providers, children }) => {
-  const LastProvider = providers.reduce((ParentProvider, ChildrenProvider) => {
-    return cloneElement(ParentProvider, { children: ChildrenProvider });
-  }, <FakeFragment />);
+  const [fallbackProvider] = useState<ProviderWrapperElement>({
+    provider: FakeFragment,
+    props: { children },
+  });
 
-  return cloneElement(LastProvider, { children });
+  const parentProvider = useMemo(() => {
+    const tempProviders = providers.map(
+      (el) => deepCopyObject(el) as ProviderWrapperElement
+    );
+
+    const { provider: YoungestProvider, props: youngestProps } =
+      tempProviders.at(-1) ?? fallbackProvider;
+
+    let auxProvider = (
+      <YoungestProvider {...youngestProps}>{children}</YoungestProvider>
+    );
+
+    for (let index = tempProviders.length - 2; index >= 0; index--) {
+      const { provider: CurrentProvider, props } = tempProviders[index];
+      auxProvider = <CurrentProvider {...props}>{auxProvider}</CurrentProvider>;
+    }
+
+    return auxProvider;
+  }, [providers]);
+
+  return parentProvider;
 };
 
 export default ProviderWrapper;

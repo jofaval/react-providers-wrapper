@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.0.2 (2022-12-14)
+
+### Modified
+
+- Use custom properties with an array of objects (and safe copy)
+
 ## v0.0.2 (2022-12-03)
 
 ### Installed
