@@ -1,5 +1,5 @@
 // Vendors
-import React, { ReactNode, cloneElement, FC, useMemo, useState } from "react";
+import React, { FC, ReactNode, useMemo, useState } from "react";
 // Helpers
 import { deepCopyObject } from "helpers/deepCopyObject";
 
@@ -32,7 +32,7 @@ const ProviderWrapper: FC<ProviderWrapperProps> = ({ providers, children }) => {
       (el) => deepCopyObject(el) as ProviderWrapperElement
     );
 
-    const { provider: YoungestProvider, props: youngestProps } =
+    const { provider: YoungestProvider, props: youngestProps = {} } =
       tempProviders.at(-1) ?? fallbackProvider;
 
     let auxProvider = (

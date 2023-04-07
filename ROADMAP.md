@@ -2,10 +2,14 @@
 
 This project's roadmap
 
-## 0.0.3
+## 0.0.4
 
 - Finally, upload the package to the NPM registry
 - Create a good set of tests
+
+## 0.0.3
+
+- Migrate to array of tuples (components and props as an optional argument)
 
 ## 0.0.2
 

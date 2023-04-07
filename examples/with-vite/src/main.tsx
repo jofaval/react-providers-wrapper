@@ -7,7 +7,7 @@ function App() {
 }
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <ProviderWrapper providers={[<React.StrictMode />]}>
+  <ProviderWrapper providers={[{ provider: React.StrictMode }]}>
     <App />
   </ProviderWrapper>
 );
