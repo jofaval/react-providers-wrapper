@@ -59,12 +59,12 @@ For code style purposes, when you have a bigger React App, you may end up with a
 ```jsx
 <ProvidersWrapper
   providers={[
-    <React.Strict />,
-    <Provider store={store} />,
-    <UserProvider />,
-    <LoginProvider />,
-    <BlaBlaBlaProvider />,
-    <NoseQueProvider />,
+    { provider: React.Strict },
+    { provider: Provider, props: { store } },
+    { provider: UserProvider },
+    { provider: LoginProvider },
+    { provider: BlaBlaBlaProvider },
+    { provider: NoseQueProvider },
   ]}
 >
   <App />
